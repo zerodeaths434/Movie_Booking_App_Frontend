@@ -1,7 +1,7 @@
 import "./MovieDetails.css";
 import { useParams, Link } from "react-router-dom";
 import { useGlobalContext } from "../../context";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import CastCard from "../../components/cast-card/CastCard";
 
 function MovieDetails() {
@@ -27,7 +27,7 @@ function MovieDetails() {
         setCrew(data.crew);
         setCast(data.cast.slice(0, 10));
       });
-  }, []);
+  }, [id]);
 
   const movie =
     moviesArr.find((movie) => movie.id.toString() === id) ||
@@ -58,6 +58,7 @@ function MovieDetails() {
           <img
             className="backdrop_img"
             src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+            alt="backdrop"
           />
         )}
         <div className="Imgoverlay"></div>
@@ -66,6 +67,7 @@ function MovieDetails() {
             <div className="movie-details-img-container">
               <img
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                alt="poster"
               />
             </div>
             <div className="about-movie">
