@@ -48,7 +48,7 @@ function Login() {
       setError(false);
       try {
         const res = await fetch(
-          "https://moviebookingappbackend.onrender.com//auth/register",
+          "https://moviebookingappbackend.onrender.com/auth/register",
           {
             method: "POST",
             body: JSON.stringify({
